@@ -17,7 +17,7 @@ B.Tech in Electronics & Computer Engineering student who got tired of building c
 
 I sit at the intersection of **embedded hardware** and **AI** — the place where a sensor reading becomes an intelligent decision without ever touching a cloud server. My ECE background means I understand the hardware layer that most AI engineers skip. My projects mean I can ship the software layer most hardware engineers avoid.
 
-Currently building **SentinelEdge** — an edge AI anomaly detector that runs TFLite inference on a Raspberry Pi and uses Gemini AI to generate human-readable fault reports in real time.
+Currently building **SpectraEdge** — an MCSA-based bearing fault detection system using spectral analysis and edge ML, backed by an enterprise-grade monitoring dashboard.
 
 ---
 
@@ -27,21 +27,30 @@ Currently building **SentinelEdge** — an edge AI anomaly detector that runs TF
 edge_ai/
 ├── TFLite  ·  TinyML inference on constrained hardware
 ├── Edge Impulse  ·  sensor model training
+├── scikit-learn  ·  Random Forest, XGBoost on edge
 ├── MPU-6050  ·  3-axis vibration + IMU
+├── SCT-013  ·  non-invasive AC current sensing
 └── DHT22  ·  temperature + humidity sensing
 
+signal_processing/
+├── NumPy / SciPy  ·  FFT, Welch PSD, spectral analysis
+├── Feature Engineering  ·  27-dim fault signature extraction
+└── MCSA  ·  Motor Current Signature Analysis
+
 languages/
-├── Python  ·  edge scripts, data pipelines, ML
+├── Python  ·  edge scripts, DSP, ML pipelines
 ├── JavaScript  ·  Vanilla JS, Vite, async DOM
+├── C  ·  embedded firmware, data structures
 └── Dart/Flutter  ·  cross-platform mobile apps
 
 ai_stack/
 ├── Gemini API  ·  structured LLM outputs
 ├── Prompt engineering  ·  fault diagnosis, data extraction
-└── API integration  ·  Supabase, REST, WebSockets
+└── API integration  ·  Supabase, REST, MQTT, WebSockets
 
 web/
 ├── Vite  ·  frontend tooling
+├── Apache ECharts  ·  enterprise-grade data viz
 ├── Supabase  ·  PostgreSQL + Realtime
 └── Floating UI · AOS · Luxon · SweetAlert2
 
@@ -59,26 +68,61 @@ tools/
 <tr>
 <td width="50%" valign="top">
 
-**⬡ SentinelEdge**
+**⚡ SpectraEdge**
 ```
 Status: [ ACTIVE ]
+Stack:  Python · ECharts · Vite
+```
+Motor Current Signature Analysis for bearing fault detection.
+Full DSP pipeline: FFT → Welch PSD → 27 features → Random Forest.
+Enterprise dashboard with live spectrum visualization.
+100% F1 score · 183 KB model · 56 tests passing.
+
+[→ Repository](https://github.com/Adarsh-codes2dev/SpectraEdge)
+
+`Python` `SciPy` `scikit-learn` `Apache ECharts` `Vite` `MQTT`
+
+</td>
+<td width="50%" valign="top">
+
+**⬡ SentinelEdge**
+```
+Status: [ SHIPPED ]
+Stack:  Python · TFLite · Gemini · Supabase
 ```
 AI-powered industrial anomaly detector.
 Raspberry Pi → TFLite → Gemini AI → Supabase → live dashboard.
 Detects faults locally. Explains them intelligently.
 
+[→ Repository](https://github.com/Adarsh-codes2dev/SentinelEdge)
+
 `Python` `TFLite` `Gemini API` `Supabase` `Vite`
 
 </td>
+</tr>
+<tr>
 <td width="50%" valign="top">
 
 **📚 Smart Syllabus & Study Planner**
 ```
 Status: [ SHIPPED ]
+Stack:  Electron · Flutter · Gemini
 ```
 Upload a syllabus → get an AI-generated study schedule, deadline tracker, and tips. Built as both a macOS desktop app and Android mobile app — from zero prior experience.
 
 `Electron` `Flutter` `Dart` `Gemini API`
+
+</td>
+<td width="50%" valign="top">
+
+**🧩 Pathfinding Visualizer**
+```
+Status: [ SHIPPED ]
+Stack:  C · Raylib
+```
+Interactive 2D grid visualizer for BFS, DFS, Dijkstra, and A* algorithms. Custom min-heap, recursive maze generation, real-time animation with performance metrics.
+
+`C` `Raylib` `Data Structures` `Algorithms`
 
 </td>
 </tr>
@@ -91,8 +135,9 @@ Upload a syllabus → get an AI-generated study schedule, deadline tracker, and 
 ```python
 # What I'm working on
 focus = {
-    "building":   "SentinelEdge v1.0 — wiring the real hardware",
-    "learning":   "Edge Impulse model training + MQTT protocol",
+    "building":   "SpectraEdge — enterprise MCSA dashboard + edge deployment",
+    "shipped":    "SentinelEdge — TFLite anomaly detection + Gemini AI reports",
+    "learning":   "ESP32-S3 firmware, MQTT protocol, real-time signal processing",
     "targeting":  ["Bosch BCAI", "Siemens", "NVIDIA", "AIoT startups"],
     "timeline":   "Final year ECE → AIoT engineer",
 }
